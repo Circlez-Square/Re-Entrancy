@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity^0.6.10;
+pragma solidity^0.8.10;
 
 contract Etherstore{
     mapping(address=>uint) public balances;
@@ -10,7 +10,7 @@ contract Etherstore{
         require(balances[msg.sender]>=_amount);
         (bool sent,)= msg.sender.call{value: _amount}(" ");
         require(sent,"Fail to send");
-        balances[msg.sender]-=_amount;
+        balances[msg.sender]-=_amount;#0
     }
     function getBalance() public view returns(uint){
         return address(this).balance;
